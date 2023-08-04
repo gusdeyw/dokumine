@@ -131,18 +131,19 @@
           <div class="capitalize">
             <nav aria-label="breadcrumb" class="w-max">
               <ol class="flex flex-wrap items-center w-full bg-opacity-60 rounded-md bg-transparent p-0 transition-all">
-                <li
+                <li v-for="(link, index) in breadcrumbs.slice(0, -1)" :key="index"
                   class="flex items-center text-blue-gray-900 antialiased font-sans text-sm font-normal leading-normal cursor-pointer transition-colors duration-300 hover:text-light-blue-500">
                   <a href="#/dashboard">
                     <p
                       class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal opacity-50 transition-all hover:text-blue-500 hover:opacity-100">
-                      dashboard</p>
+                      {{ link.title }}</p>
                   </a><span
                     class="text-blue-gray-500 text-sm antialiased font-sans font-normal leading-normal mx-2 pointer-events-none select-none">/</span>
                 </li>
-                <li
+                <li v-for="(link, index) in breadcrumbs.slice(-1)" :key="index"
                   class="flex items-center text-blue-gray-900 antialiased font-sans text-sm font-normal leading-normal cursor-pointer transition-colors duration-300 hover:text-light-blue-500">
-                  <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">home</p>
+                  <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">
+                    {{ link.title }}</p>
                 </li>
               </ol>
             </nav>
@@ -303,7 +304,8 @@
                 type="button"><i class="fa-brands fa-facebook text-white"></i>Share</button></div>
           </div>
         </div>
-      </aside><button
+      </aside>
+      <button
         class="middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-12 max-w-[48px] h-12 max-h-[48px] text-sm bg-white text-blue-gray-900 shadow-md hover:shadow-lg hover:shadow-blue-gray-500/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none fixed bottom-8 right-8 z-40 rounded-full shadow-blue-gray-900/10"
         type="button"><span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"><svg
             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-5 w-5">
@@ -349,12 +351,18 @@
 import { RouterLink, RouterView, useRouter, useRoute } from 'vue-router'
 import { computed, onBeforeMount, onMounted, ref, watch } from "vue";
 
-const router = useRouter()
-const route = useRoute()
-let currentLocation
-onBeforeMount(async () => {
-  await router.isReady()
-  console.log(route, 'route');
+const router: any = useRouter()
+const route: any = useRoute()
+let breadcrumbs: any = []
+
+watch(route, () => {
+  router.isReady()
+  breadcrumbs = route.meta.breadcrumbs
+  console.log(breadcrumbs, 'breadcrumbs');
+  
+})
+onBeforeMount(() => {
+  breadcrumbs = route.meta.breadcrumbs
 })
 
 
