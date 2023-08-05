@@ -1,17 +1,12 @@
+<script setup lang="ts">
+import { RouterLink, RouterView, useRouter, useRoute } from 'vue-router'
+import { computed, onBeforeMount, onMounted, ref, watch } from "vue";
+
+const router: any = useRouter()
+const route: any = useRoute()
+
+</script>
 <template>
-  <!-- <header> -->
-  <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
-
-  <!-- <div class="wrapper"> -->
-  <!-- <HelloWorld msg="You did it!" /> -->
-
-  <!-- <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-    </nav> -->
-  <!-- </div> -->
-  <!-- </header> -->
-
   <div class="min-h-screen bg-blue-50">
     <aside
       class="bg-[#35444c] -translate-x-80 fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0">
@@ -131,7 +126,7 @@
           <div class="capitalize">
             <nav aria-label="breadcrumb" class="w-max">
               <ol class="flex flex-wrap items-center w-full bg-opacity-60 rounded-md bg-transparent p-0 transition-all">
-                <li v-for="(link, index) in breadcrumbs.slice(0, -1)" :key="index"
+                <li v-for="(link, index) in route.meta.breadcrumbs.slice(0, -1)" :key="index"
                   class="flex items-center text-blue-gray-900 antialiased font-sans text-sm font-normal leading-normal cursor-pointer transition-colors duration-300 hover:text-light-blue-500">
                   <a href="#/dashboard">
                     <p
@@ -140,7 +135,7 @@
                   </a><span
                     class="text-blue-gray-500 text-sm antialiased font-sans font-normal leading-normal mx-2 pointer-events-none select-none">/</span>
                 </li>
-                <li v-for="(link, index) in breadcrumbs.slice(-1)" :key="index"
+                <li v-for="(link, index) in route.meta.breadcrumbs.slice(-1)" :key="index"
                   class="flex items-center text-blue-gray-900 antialiased font-sans text-sm font-normal leading-normal cursor-pointer transition-colors duration-300 hover:text-light-blue-500">
                   <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">
                     {{ link.title }}</p>
@@ -346,26 +341,5 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { RouterLink, RouterView, useRouter, useRoute } from 'vue-router'
-import { computed, onBeforeMount, onMounted, ref, watch } from "vue";
-
-const router: any = useRouter()
-const route: any = useRoute()
-let breadcrumbs: any = []
-
-watch(route, () => {
-  router.isReady()
-  breadcrumbs = route.meta.breadcrumbs
-  console.log(breadcrumbs, 'breadcrumbs');
-  
-})
-onBeforeMount(() => {
-  breadcrumbs = route.meta.breadcrumbs
-})
-
-
-</script>
 
 <style scoped></style>
