@@ -184,7 +184,7 @@
             <div class="mb-20">
               <div class="flex justify-center mb-8">
                 <h4 class="block antialiased font-sans text-3xl font-semibold leading-snug text-blue-gray-500">
-                  Projects</h4>
+                  The Developers</h4>
               </div>
               <div class="flex justify-center">
                 <div class="grid grid-cols-3 gap-4">
