@@ -133,7 +133,7 @@
         </div>
         <div class="p-6 px-0 pt-0 pb-2">
           <div class="p-4">
-            <div class="flex flex-items-center mb-48">
+            <div class="flex flex-items-center mb-20">
               <div class="grid grid-cols-2 gap-4">
                 <div class="flex items-center">
                   <div class="relative border-b border-white/20">
@@ -141,8 +141,8 @@
                       class="block antialiased font-sans text-xs leading-normal font-semibold uppercase text-blue-gray-600">
                       About Us</p> -->
                     <h4
-                      class="block antialiased tracking-normal font-sans text-4xl font-semibold leading-snug text-blue-gray-900 mb-4">
-                      Dokumine</h4>
+                      class="block antialiased tracking-normal font-sans text-3xl font-semibold leading-snug text-blue-gray-900 mb-4">
+                      Company Name</h4>
                   </div>
                 </div>
                 <div class="flex items-center">
@@ -157,8 +157,51 @@
                 </div>
               </div>
             </div>
-            <div class="flex justify-center">
-
+            <div class="mb-20">
+              <div class="flex justify-center mb-8">
+                <h4
+                  class="block antialiased tracking-normal font-sans text-3xl font-semibold leading-snug text-blue-gray-900">
+                  Projects</h4>
+              </div>
+              <div class="flex justify-center">
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <p class="antialiased text-sm uppercase font-semibold font-sans text-blue-gray-500 mb-1">
+                      Project Name</p>
+                    <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">Lorem
+                      ipsum
+                      dolor sit amet consectetur adipisicing elit. Illum corrupti quisquam repudiandae voluptatem tempora
+                      illo
+                      consequuntur dolores magni ad voluptate, suscipit esse excepturi aut quaerat! Labore sit perferendis
+                      expedita laboriosam?</p>
+                  </div>
+                  <div>
+                    <img src="/logo.png" alt="" class=" w-auto">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-20">
+              <div class="flex justify-center mb-8">
+                <h4 class="block antialiased font-sans text-3xl font-semibold leading-snug text-blue-gray-500">
+                  Projects</h4>
+              </div>
+              <div class="flex justify-center">
+                <div class="grid grid-cols-3 gap-4">
+                  <div>
+                    <img src="/logo.png" alt="" class=" w-auto">
+                    <p class="text-center antialiased font-sans text-sm text-blue-gray-500">Developer Name</p>
+                  </div>
+                  <div>
+                    <img src="/logo.png" alt="" class=" w-auto">
+                    <p class="text-center antialiased font-sans text-sm text-blue-gray-500">Developer Name</p>
+                  </div>
+                  <div>
+                    <img src="/logo.png" alt="" class=" w-auto">
+                    <p class="text-center antialiased font-sans text-sm text-blue-gray-500">Developer Name</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
