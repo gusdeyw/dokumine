@@ -4,6 +4,16 @@ import { computed, onBeforeMount, onMounted, ref, watch } from "vue";
 
 const router: any = useRouter()
 const route: any = useRoute()
+let breadcrumbs: any = ref()
+
+watch(route, () => {  
+  breadcrumbs.value = route.meta.breadcrumbs
+})
+
+onBeforeMount(async () => {
+  await router.isReady()
+  breadcrumbs.value = route.meta.breadcrumbs
+})
 
 </script>
 <template>
@@ -126,7 +136,7 @@ const route: any = useRoute()
           <div class="capitalize">
             <nav aria-label="breadcrumb" class="w-max">
               <ol class="flex flex-wrap items-center w-full bg-opacity-60 rounded-md bg-transparent p-0 transition-all">
-                <li v-for="(link, index) in route.meta.breadcrumbs.slice(0, -1)" :key="index"
+                <li v-for="(link, index) in breadcrumbs.slice(0, -1)" :key="index"
                   class="flex items-center text-blue-gray-900 antialiased font-sans text-sm font-normal leading-normal cursor-pointer transition-colors duration-300 hover:text-light-blue-500">
                   <a href="#/dashboard">
                     <p
@@ -135,7 +145,7 @@ const route: any = useRoute()
                   </a><span
                     class="text-blue-gray-500 text-sm antialiased font-sans font-normal leading-normal mx-2 pointer-events-none select-none">/</span>
                 </li>
-                <li v-for="(link, index) in route.meta.breadcrumbs.slice(-1)" :key="index"
+                <li v-for="(link, index) in breadcrumbs.slice(-1)" :key="index"
                   class="flex items-center text-blue-gray-900 antialiased font-sans text-sm font-normal leading-normal cursor-pointer transition-colors duration-300 hover:text-light-blue-500">
                   <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">
                     {{ link.title }}</p>
