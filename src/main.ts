@@ -10,6 +10,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   // Example routes
   {
+    name: "Home",
     path: '/',
     component: HomeView,
     meta: {
@@ -20,6 +21,7 @@ const routes = [
     }
   },
   {
+    name: "About",
     path: '/about',
     component: AboutView,
     meta: {
