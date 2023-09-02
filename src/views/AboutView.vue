@@ -31,9 +31,6 @@
                   <p class="antialiased font-sans mb-4 block text-xs font-semibold text-blue-gray-500">Video
                     presentation
                   </p>
-                  <video>
-                    <source src="/">
-                  </video>
                   <div>
                   </div>
                 </div>
